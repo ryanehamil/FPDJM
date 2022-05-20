@@ -1,6 +1,9 @@
-package pdjm
+package attractor
 
-import "sort"
+import (
+	"math"
+	"sort"
+)
 
 type Histogram struct {
 	OriginalPoints []Coordinate3d
@@ -52,11 +55,14 @@ func (h *Histogram) Scale(width, height int) {
 	if (h.CurrentScale == Coordinate2dInt{width, height}) {
 		return
 	} else {
+		shortSide := int(math.Min(float64(width), float64(height)))
+		offsetX := (width - shortSide) / 2
+		offsetY := (height - shortSide) / 2
 		// Clear ScaledPoints and append the scaled points
 		h.ScaledPoints = nil
 		for i := 0; i < len(h.OriginalPoints); i++ {
-			x := int((h.OriginalPoints[i].X + 2.0) / 4.0 * float64(width))
-			y := int((h.OriginalPoints[i].Y + 2.0) / 4.0 * float64(height))
+			x := int((h.OriginalPoints[i].X+2.0)/4.0*float64(shortSide)) + offsetX
+			y := int((h.OriginalPoints[i].Y+2.0)/4.0*float64(shortSide)) + offsetY
 			z := h.OriginalPoints[i].Z
 			h.ScaledPoints = append(h.ScaledPoints, Coordinate3dInt{x, y, z})
 		}

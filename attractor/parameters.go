@@ -1,9 +1,15 @@
-package pdjm
+package attractor
 
 import (
 	"math/rand"
 	"time"
+	"fmt"
 )
+
+func f64toString(f float64) string {
+	return fmt.Sprintf("%f", f)
+}
+
 
 // Parameters is a map of parameter names to values
 type Parameters struct {
@@ -21,4 +27,8 @@ func (p *Parameters) Random() {
 	p.b = rand.NormFloat64() * 2
 	p.c = rand.NormFloat64() * 2
 	p.d = rand.NormFloat64() * 2
+}
+
+func (p *Parameters) String() string {
+	return "a: " + f64toString(p.a) + " b: " + f64toString(p.b) + " c: " + f64toString(p.c) + " d: " + f64toString(p.d)
 }

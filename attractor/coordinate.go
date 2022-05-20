@@ -1,4 +1,4 @@
-package pdjm
+package attractor
 
 import (
 	"fmt"

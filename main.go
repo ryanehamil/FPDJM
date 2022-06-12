@@ -1,14 +1,14 @@
 package main
 
 import (
-	"github.com/ryanehamil/FPDJM/attractor"
-	"github.com/ryanehamil/FPDJM/fyre"
+	"github.com/ryanehamil/FPDJM/src/attractor"
+	"github.com/ryanehamil/FPDJM/src/fyre"
 )
 
 // main function
 func main() {
 
-	fpdjm := fyre.New(attractor.New("Peter de Jong", 10000000))
+	fpdjm := fyre.New(attractor.New("Peter de Jong"))
 
 	fpdjm.Run()
 

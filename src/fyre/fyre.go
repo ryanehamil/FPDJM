@@ -9,7 +9,7 @@ import (
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/layout"
-	"github.com/ryanehamil/FPDJM/attractor"
+	"github.com/ryanehamil/FPDJM/src/attractor"
 )
 
 type fyreApp struct {
@@ -28,15 +28,16 @@ func (fa *fyreApp) Run() {
 
 	fa.w.Resize(fyne.NewSize(800, 600))
 
-	fa.att.Run()
+	fa.att.Start()
 
 	fa.w.Canvas().SetOnTypedKey(func(e *fyne.KeyEvent) {
 		if e.Name == fyne.KeySpace {
+			if (fa.att.Running){ fa.att.Stop() }
 			start := time.Now()
 			fa.t.Text = "regenerating"
 			fa.t.Refresh()
 			fa.att.Initialize()
-			fa.att.Run()
+			fa.att.Start()
 			fa.r.Refresh()
 			fa.t.Text = "regenerated in " + time.Since(start).String() + " settings: " + fa.att.Parameters.String()
 			fa.t.Refresh()
@@ -55,7 +56,7 @@ func New(att *attractor.System) (fa fyreApp) {
 	fa.att = att
 
 	fa.r = canvas.NewRaster(fa.att.Plot)
-	fa.r.SetMinSize(fyne.NewSize(400, 400))
+	fa.r.SetMinSize(fyne.NewSize(800, 800))
 	
 	// fa.AddRaster(fa.r)
 

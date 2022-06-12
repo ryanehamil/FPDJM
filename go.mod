@@ -5,12 +5,9 @@ go 1.17
 require fyne.io/fyne/v2 v2.1.4
 
 require (
-	github.com/BurntSushi/toml v1.1.0 // indirect
-	github.com/Kodeworks/golang-image-ico v0.0.0-20141118225523-73f0f4cfade9 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fredbi/uri v0.0.0-20181227131451-3dcfdacbaaf3 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
-	github.com/fyne-io/fyne-cross v1.2.1 // indirect
 	github.com/go-gl/gl v0.0.0-20211210172815-726fda9656d6 // indirect
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20220320163800-277f93cfa958 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
@@ -18,7 +15,6 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/srwiley/oksvg v0.0.0-20220128195007-1f435e4c2b44 // indirect
 	github.com/srwiley/rasterx v0.0.0-20220128185129-2efea2b9ea41 // indirect
-	github.com/stretchr/objx v0.1.0 // indirect
 	github.com/stretchr/testify v1.7.1 // indirect
 	github.com/yuin/goldmark v1.4.11 // indirect
 	golang.org/x/image v0.0.0-20220321031419-a8550c1d254a // indirect
